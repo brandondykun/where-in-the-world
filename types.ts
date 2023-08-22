@@ -2,7 +2,12 @@ export type CountryType = {
   name: {
     common: string;
     official: string;
-    nativeName: object;
+    nativeName: {
+      [key: string]: {
+        official: string;
+        common: string;
+      };
+    };
   };
   region: string;
   capital: string[];
