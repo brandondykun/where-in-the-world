@@ -9,7 +9,11 @@ const CountryCard = ({ country }: { country: CountryType }) => {
         <div className="h-[190px] overflow-hidden flex justify-center items-center">
           <Image
             src={country.flags.svg}
-            alt={country.flags.alt}
+            alt={
+              country.flags.alt
+                ? country.flags.alt
+                : `${country.name.common} flag.`
+            }
             className="min-h-full min-w-full flex-shrink-0 object-cover"
             height={200}
             width={300}

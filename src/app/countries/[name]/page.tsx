@@ -89,6 +89,7 @@ const Country = async ({ params }: { params: { name: string } }) => {
             className="w-full max-w-[350px] md:max-w-[400px] xl:max-w-[450px] 2xl:max-w-[550px] max-h-[500px] justify-self-center mb-10 lg:mb-0 lg:mr-8"
             width={550}
             height={550}
+            priority
           />
           <div className="justify-self-center lg:justify-self-start">
             <div className="font-bold text-3xl pb-6 pt-12 lg:pt-0">
@@ -175,7 +176,10 @@ const Country = async ({ params }: { params: { name: string } }) => {
                   borderCountries.length ? (
                     borderCountries.map((c) => {
                       return (
-                        <Link href={`/countries/${c.name.official}`}>
+                        <Link
+                          href={`/countries/${c.name.official}`}
+                          key={c.name.common}
+                        >
                           <button className="bg-white shadow-md px-6 py-1 rounded dark:bg-dark-blue text-sm hover:scale-y-110 hover:scale-x-105 dark:hover:brightness-110 hover:brightness-90 transition-transform duration-300">
                             {c.name.common}
                           </button>
