@@ -113,7 +113,7 @@ const Countries = () => {
           </Select>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-16 place-items-stretch max-w-[2400px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-16 place-items-stretch [@media(min-width:2400px)]:w-[1000px] [@media(min-width:2400px)]:mx-auto">
         {doubleFiltered.length > 0 &&
           doubleFiltered.map((c) => {
             return <CountryCard country={c} key={c.name.official} />;
