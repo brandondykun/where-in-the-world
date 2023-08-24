@@ -63,15 +63,12 @@ const Country = async ({ params }: { params: { name: string } }) => {
     }
   }
 
-  // get array of native names
-  const nativeNames: string[] = [];
+  const nativeNamesArr: string[] = [];
   if (country?.name?.nativeName) {
     for (const [key, value] of Object.entries(country.name.nativeName)) {
-      nativeNames.push(key);
+      nativeNamesArr.push(value.common);
     }
   }
-  // the last native name is in the local language and the one we want
-  const nativeName = nativeNames[nativeNames.length - 1];
 
   return (
     <main className="bg-very-light-gray dark:bg-very-dark-blue-bg flex flex-col flex-1 p-8 lg:p-16 gap-16 lg:gap-20">
@@ -106,11 +103,13 @@ const Country = async ({ params }: { params: { name: string } }) => {
             <div className="flex flex-col gap-12 md:flex-row">
               <div className="flex flex-col gap-2">
                 <div>
-                  <span className="font-bold mr-2">Native Name:</span>
+                  <span className="font-bold mr-2">
+                    {nativeNamesArr.length > 1
+                      ? "Native Names:"
+                      : "Native Name:"}
+                  </span>
                   <span className="font-thin">
-                    {nativeName
-                      ? country.name.nativeName[nativeName].common
-                      : "None"}
+                    {nativeNamesArr.length ? nativeNamesArr.join(", ") : "None"}
                   </span>
                 </div>
                 <div>
