@@ -176,7 +176,7 @@ const Country = async ({ params }: { params: { name: string } }) => {
                     borderCountries.map((c) => {
                       return (
                         <Link href={`/countries/${c.name.official}`}>
-                          <button className="bg-white shadow-md px-6 py-1 rounded dark:bg-dark-blue text-sm hover:scale-110 transition-transform duration-300">
+                          <button className="bg-white shadow-md px-6 py-1 rounded dark:bg-dark-blue text-sm hover:scale-y-110 hover:scale-x-105 dark:hover:brightness-110 hover:brightness-90 transition-transform duration-300">
                             {c.name.common}
                           </button>
                         </Link>
