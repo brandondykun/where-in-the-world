@@ -13,6 +13,12 @@ const getCountry = async (
   try {
     const data = await fetch(`https://restcountries.com/v3.1/name/${name}`);
     const countryData = await data.json();
+    if (countryData.status == "404") {
+      return {
+        error: "There was an error fetching that country. Please try again.",
+        country: null,
+      };
+    }
     return { country: countryData[0], error: false };
   } catch (error) {
     return {
