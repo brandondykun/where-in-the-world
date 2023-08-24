@@ -43,8 +43,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Check out the code here](https://github.com/brandondykun/where-in-the-world)
+- [View the live site here](https://where-in-the-world-ten-sigma.vercel.app/)
 
 ## My process
 
