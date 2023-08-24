@@ -85,7 +85,11 @@ const Country = async ({ params }: { params: { name: string } }) => {
         <div className="grid lg:grid-cols-2 items-center content-center">
           <Image
             src={country.flags.svg}
-            alt={country.flags.alt}
+            alt={
+              country.flags.alt
+                ? country.flags.alt
+                : `${country.name.common} flag.`
+            }
             className="w-full max-w-[350px] md:max-w-[400px] xl:max-w-[450px] 2xl:max-w-[550px] max-h-[500px] justify-self-center mb-10 lg:mb-0 lg:mr-8"
             width={550}
             height={550}
