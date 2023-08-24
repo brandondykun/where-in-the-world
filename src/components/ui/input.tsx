@@ -18,7 +18,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           py-2 
           text-sm
           rounded
-          shadow-md
 
           file:border-0 
           file:bg-transparent 

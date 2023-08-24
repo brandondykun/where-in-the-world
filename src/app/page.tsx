@@ -80,7 +80,7 @@ const Countries = () => {
   return (
     <main className="flex-1 flex flex-col bg-very-light-gray dark:bg-very-dark-blue-bg px-8 py-8 md:py-12">
       <div className="flex flex-col gap-10 pb-12 md:flex-row md:justify-between md:items-center md:pb-16">
-        <div className="relative max-w-[400px] md:w-96">
+        <div className="relative max-w-[400px] md:w-96 shadow-md rounded">
           <AiOutlineSearch size={25} className="absolute top-3 left-5" />
           <Input
             type="text"
