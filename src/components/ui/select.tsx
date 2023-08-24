@@ -21,8 +21,7 @@ const SelectTrigger = React.forwardRef<
     className={cn(
       `flex
       px-3 
-      py-2 
-      text-sm  
+      py-2  
       h-12 
       w-full 
       items-center 
@@ -35,6 +34,11 @@ const SelectTrigger = React.forwardRef<
 
       placeholder:text-neutral-500 
       dark:placeholder:text-neutral-400 
+
+      text-neutral-700
+      dark:text-neutral-300
+
+      font-light
 
       focus:ring-2 
       focus:ring-offset-2 
