@@ -25,7 +25,7 @@ const Themechanger = () => {
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {light ? <BsMoon size={12} /> : <BsMoonFill size={12} />}
-      <div>Dark Mode</div>
+      <div className="hidden xs:block">Dark Mode</div>
     </button>
   );
 };
