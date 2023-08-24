@@ -89,23 +89,29 @@ const Countries = () => {
             placeholder="Search for a country..."
           />
         </div>
-        <Select onValueChange={handleRegionFilter}>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Filter by Region" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectItem value="All">All</SelectItem>
-              {regions.map((region) => {
-                return (
-                  <SelectItem value={region} key={region}>
-                    {region}
-                  </SelectItem>
-                );
-              })}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <div className="flex gap-8 items-center">
+          <span className="hidden md:block text-neutral-600 dark:text-neutral-400 font-light pt-[4px]">
+            {doubleFiltered.length} /{" "}
+            {countries?.length ? countries.length : "250"}
+          </span>
+          <Select onValueChange={handleRegionFilter}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Filter by Region" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="All">All</SelectItem>
+                {regions.map((region) => {
+                  return (
+                    <SelectItem value={region} key={region}>
+                      {region}
+                    </SelectItem>
+                  );
+                })}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-16 place-items-stretch max-w-[2400px] mx-auto">
         {doubleFiltered.length > 0 &&
@@ -117,13 +123,13 @@ const Countries = () => {
         <div className="text-3xl pt-20 mx-auto">No Countries Found</div>
       ) : null}
       {countries === null && !fetchError ? (
-        <div className="animate-pulse grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-16 place-items-stretch max-w-[2400px] mx-auto">
+        <div className="animate-pulse grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-16 [@media(min-width:2400px)]:w-[1000px] [@media(min-width:2400px)]:mx-auto">
           {Array(200)
             .fill(0)
             .map((c, i) => {
               return (
                 <div
-                  className="rounded bg-white dark:bg-dark-blue shadow-md h-[414px] w-[200px] xs:w-[250px] sm:w-[350px] md:w-[300px] lg:w-[280px] xl:w-[260px] overflow-hidden"
+                  className="rounded bg-white dark:bg-dark-blue shadow-md h-[414px] w-full max-w-sm md:m-0 m-auto"
                   key={i}
                 ></div>
               );
