@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const CountryCard = ({ country }: { country: CountryType }) => {
   return (
-    <Link href={`countries/${country.name.official}`} className="inline">
+    <Link href={`/${country.name.official}`} className="inline">
       <div className="rounded overflow-hidden bg-white dark:bg-dark-blue shadow-md h-full hover:scale-105 transition-transform duration-500 hover:shadow-xl max-w-sm">
         <div className="h-[190px] overflow-hidden flex justify-center items-center">
           <Image

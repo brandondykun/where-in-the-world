@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { CountryType } from "../../../../types";
+import { CountryType } from "../../../types";
 import { BsArrowLeft } from "react-icons/bs";
 import { RiExternalLinkLine } from "react-icons/ri";
 import Image from "next/image";
-import unImage from "../../../../public/un-emblem.svg";
+import unImage from "../../../public/un-emblem.svg";
 
 const getCountry = async (
   name: string
@@ -75,7 +75,7 @@ const Country = async ({ params }: { params: { name: string } }) => {
 
   return (
     <main className="bg-very-light-gray dark:bg-very-dark-blue-bg flex flex-col flex-1 p-8 lg:p-16 gap-16 lg:gap-20">
-      <Link href="/countries" className="w-[107px] mt-2">
+      <Link href="/" className="w-[107px] mt-2">
         <button className="px-8 py-2 bg-white dark:bg-dark-blue  flex items-center gap-2 rounded shadow-lg hover:scale-105 transition-transform duration-300">
           <BsArrowLeft />
           Back
