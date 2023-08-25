@@ -67,6 +67,7 @@ Users should be able to:
 - CSS Grid
 - Flexbox
 - Mobile-first workflow
+- Deployed with [Vercel](https://vercel.com/)
 
 ## Author
 
