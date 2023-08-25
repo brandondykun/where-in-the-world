@@ -65,14 +65,18 @@ const Country = async ({ params }: { params: { name: string } }) => {
   const languages: string[] = [];
   if (country?.languages) {
     for (const [key, value] of Object.entries(country.languages)) {
-      languages.push(country.languages[key]);
+      if (!languages.includes(country.languages[key])) {
+        languages.push(country.languages[key]);
+      }
     }
   }
 
   const nativeNamesArr: string[] = [];
   if (country?.name?.nativeName) {
     for (const [key, value] of Object.entries(country.name.nativeName)) {
-      nativeNamesArr.push(value.common);
+      if (!nativeNamesArr.includes(value.common)) {
+        nativeNamesArr.push(value.common);
+      }
     }
   }
 
@@ -98,7 +102,7 @@ const Country = async ({ params }: { params: { name: string } }) => {
             height={550}
             priority
           />
-          <div className="justify-self-center lg:justify-self-start">
+          <div className="sm:justify-self-center lg:justify-self-start">
             <div className="font-bold text-3xl pb-6 pt-12 lg:pt-0">
               {country.name?.common}
             </div>
@@ -109,13 +113,15 @@ const Country = async ({ params }: { params: { name: string } }) => {
             <div className="flex flex-col gap-12 md:flex-row">
               <div className="flex flex-col gap-2">
                 <div>
-                  <span className="font-bold mr-2">
+                  <span className="font-bold mr-2 whitespace-nowrap">
                     {nativeNamesArr.length > 1
                       ? "Native Names:"
                       : "Native Name:"}
                   </span>
                   <span className="font-thin">
-                    {nativeNamesArr.length ? nativeNamesArr.join(", ") : "None"}
+                    {nativeNamesArr.length
+                      ? nativeNamesArr.join(",  ")
+                      : "None"}
                   </span>
                 </div>
                 <div>
@@ -129,7 +135,9 @@ const Country = async ({ params }: { params: { name: string } }) => {
                   <span className="font-thin">{country.region}</span>
                 </div>
                 <div>
-                  <span className="font-bold mr-2">Sub Region:</span>
+                  <span className="font-bold mr-2 whitespace-nowrap">
+                    Sub Region:
+                  </span>
                   <span className="font-thin">
                     {country.subregion ? country.subregion : "None"}
                   </span>
@@ -142,8 +150,18 @@ const Country = async ({ params }: { params: { name: string } }) => {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
+                {country.area ? (
+                  <div>
+                    <span className="font-bold mr-2">Area:</span>
+                    <span className="font-thin">
+                      {country.area.toLocaleString("en-US")} km²
+                    </span>
+                  </div>
+                ) : null}
                 <div>
-                  <span className="font-bold mr-2">Top Level Domain:</span>
+                  <span className="font-bold mr-2 whitespace-nowrap">
+                    Top Level Domain:
+                  </span>
                   <span className="font-thin">
                     {country.tld ? country.tld.join(", ") : "None"}
                   </span>
