@@ -1,8 +1,8 @@
 export type CountryType = {
-  name: {
+  names: {
     common: string;
     official: string;
-    nativeName: {
+    native?: {
       [key: string]: {
         official: string;
         common: string;
@@ -10,68 +10,36 @@ export type CountryType = {
     };
   };
   region: string;
-  capital: string[];
+  subregion?: string;
+  capitals?: {
+    name: string;
+  }[];
   population: number;
-  flags: {
-    png: string;
-    svg: string;
-    alt: string;
+  flag: {
+    description?: string;
+    url_png?: string;
+    url_svg?: string;
   };
-  tld: string[];
-  cca2: string;
-  ccn3: string;
-  cca3: string;
-  cioc: string;
-  independent: boolean;
-  status: string;
-  unMember: boolean;
-  currencies: {
-    [key: string]: {
-      name: string;
-      symbol: string;
-    };
+  tlds?: string[];
+  codes?: {
+    alpha_3?: string;
   };
-  idd: {
-    root: string;
-    suffixes: string[];
+  currencies?: {
+    code?: string;
+    name: string;
+    symbol?: string;
+  }[];
+  languages?: {
+    name: string;
+  }[];
+  borders?: string[];
+  area?: {
+    kilometers?: number;
   };
-  altSpellings: string[];
-  subregion: string;
-  languages: {
-    [key: string]: string;
+  classification?: {
+    un_member?: boolean;
   };
-  translations: {};
-  latlng: [number, number];
-  landlocked: boolean;
-  borders: string[];
-  area: number;
-  demonyms: {
-    [key: string]: {
-      f: string;
-      m: string;
-    };
-  };
-  flag: string;
-  maps: {
-    googleMaps: string;
-    openStreetMaps: string;
-  };
-  gini: {
-    [key: string]: number;
-  };
-  fifa: string;
-  car: {
-    signs: string[];
-    side: string;
-  };
-  timezones: string[];
-  continents: string[];
-  coatOfArms: {
-    png: string;
-    svg: string;
-  };
-  startOfWeek: string;
-  capitalInfo: {
-    latlng: [number, number];
+  links?: {
+    google_maps?: string;
   };
 };
